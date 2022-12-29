@@ -11,52 +11,71 @@ struct Conversation: View {
     @EnvironmentObject var chatData : ChatViewModel
     var user : RecentChats
     var body: some View {
-        VStack {
-            HStack {
-                Text(user.userName)
-                    .font(.title2)
+        HStack {
+            VStack {
+                HStack {
+                    Text(user.userName)
+                        .font(.title2)
+                    Spacer()
+                    
+                    Image(systemName: "magnifyingglass")
+                        .font(.title2)
+                        .buttonStyle(.plain)
+                    
+                    Image(systemName: "sidebar.right")
+                        .font(.title2)
+                        .buttonStyle(.plain)
+                }
+                .padding()
+                
+                Spacer()
+                
+                HStack(spacing: 30) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "paperplane")
+                            .font(.title2)
+                        
+                    }
+                    .buttonStyle(.plain)
+                    
+                    TextField("Enter your message.....", text: $chatData.message)
+                        .textFieldStyle(.plain)
+                        .padding(.vertical, 7)
+                        .padding(.horizontal)
+                        .background(Capsule().strokeBorder(Color.white))
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "face.smiling.fill")
+                            .font(.title2)
+                        
+                    }
+                    .buttonStyle(.plain)
+                    
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "mic")
+                            .font(.title2)
+                        
+                    }
+                    .buttonStyle(.plain)
+                }
+                .padding([.horizontal, .bottom])
             }
-            .padding()
             
-            Spacer()
+            ExpandView(user: user)
+                .frame(width: 200)
+                .background(BlurView())
             
-            HStack(spacing: 30) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "paperplane")
-                        .font(.title2)
-                    
-                }
-                .buttonStyle(.plain)
-                
-                TextField("Enter your message.....", text: $chatData.message)
-                    .textFieldStyle(.plain)
-                    .padding(.vertical, 7)
-                    .padding(.horizontal)
-                    .background(Capsule().strokeBorder(Color.white))
-                
-                Button {
-                    
-                } label: {
-                    Image(systemName: "face.smiling.fill")
-                        .font(.title2)
-                    
-                }
-                .buttonStyle(.plain)
-                
-                
-                Button {
-                    
-                } label: {
-                    Image(systemName: "mic")
-                        .font(.title2)
-                    
-                }
-                .buttonStyle(.plain)
-            }
-            .padding([.horizontal, .bottom])
+            
+            
         }
+        .ignoresSafeArea(.all, edges: .all)
     }
 }
 

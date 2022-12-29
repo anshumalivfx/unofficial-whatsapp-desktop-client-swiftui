@@ -14,15 +14,16 @@ struct RecentChats : Identifiable {
     var pendingMessages : String
     var userName : String
     var userImage : String
+    var userPhone : String
     var allMessage : [Message]
 }
 
 
 var chats : [RecentChats] = [
-    RecentChats(lastMessage: "Hello Bhai", lastMessageTime: "15:00", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", allMessage: BenDOVER_CHATS.shuffled()),
-    RecentChats(lastMessage: "Hello Bhai", lastMessageTime: "15:00", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", allMessage: BenDOVER_CHATS.shuffled()),
-    RecentChats(lastMessage: "Hello Bhai", lastMessageTime: "15:00", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", allMessage: BenDOVER_CHATS.shuffled()),
-    RecentChats(lastMessage: "Hello Bhai", lastMessageTime: "15:00", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", allMessage: BenDOVER_CHATS.shuffled()),
-    RecentChats(lastMessage: "Hello Bhai", lastMessageTime: "15:00", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", allMessage: BenDOVER_CHATS.shuffled()),
-    RecentChats(lastMessage: "Hello Bhai", lastMessageTime: "15:00", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", allMessage: BenDOVER_CHATS.shuffled()),
+    RecentChats(lastMessage: "Hello", lastMessageTime: "23:50", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", userPhone: "+917777733", allMessage: BenDOVER_CHATS.shuffled()),
+    RecentChats(lastMessage: "Hello", lastMessageTime: "23:50", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", userPhone: "+917777733", allMessage: BenDOVER_CHATS.shuffled()),
+    RecentChats(lastMessage: "Hello", lastMessageTime: "23:50", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", userPhone: "+917777733", allMessage: BenDOVER_CHATS.shuffled()),
+    RecentChats(lastMessage: "Hello", lastMessageTime: "23:50", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", userPhone: "+917777733", allMessage: BenDOVER_CHATS.shuffled()),
+    RecentChats(lastMessage: "Hello", lastMessageTime: "23:50", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", userPhone: "+917777733", allMessage: BenDOVER_CHATS.shuffled()),
+    RecentChats(lastMessage: "Hello", lastMessageTime: "23:50", pendingMessages: "69", userName: "Ben Dover", userImage: "bendover", userPhone: "+917777733", allMessage: BenDOVER_CHATS.shuffled()),
 ]

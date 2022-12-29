@@ -14,6 +14,9 @@ struct ChatsView: View {
         VStack {
            
             HStack {
+                Text("Chats")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
                 Spacer()
                 Button {
                     
