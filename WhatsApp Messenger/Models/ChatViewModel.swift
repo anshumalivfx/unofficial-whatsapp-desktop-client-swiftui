@@ -17,4 +17,6 @@ class ChatViewModel : ObservableObject {
     @Published var search = ""
     
     @Published var message = ""
+    
+    @Published var pickedSelection = ""
 }

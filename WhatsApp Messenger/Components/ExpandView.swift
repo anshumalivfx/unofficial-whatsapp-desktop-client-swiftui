@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpandView: View {
+    @EnvironmentObject var chatData : ChatViewModel
     var user: RecentChats
     var body: some View {
         HStack {
@@ -43,6 +44,9 @@ struct ExpandView: View {
                         .font(.caption)
                         .fontWeight(.medium)
                 }
+                .padding()
+                .background(Color.primary.opacity(0.15))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 
                 
@@ -52,10 +56,29 @@ struct ExpandView: View {
                     } label: {
                         
                         VStack {
-                            Image(systemName: "bell.slash")
+                            Image(systemName: "nosign")
                                 .font(.title2)
-                            Text("Mute")
+                                .fontWeight(.bold)
+                            Text("Block")
                         }
+                        .foregroundColor(.red)
+                        
+                    }
+                    .buttonStyle(.plain)
+                    
+                    Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        
+                        VStack {
+                            Image(systemName: "hand.thumbsdown")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Text("Report")
+                        }
+                        .foregroundColor(.red)
                         
                         
                     }
@@ -68,27 +91,11 @@ struct ExpandView: View {
                     } label: {
                         
                         VStack {
-                            Image(systemName: "bell.slash")
+                            Image(systemName: "trash")
                                 .font(.title2)
-                            Text("Mute")
+                            Text("Delete")
                         }
-                        
-                        
-                    }
-                    .buttonStyle(.plain)
-                    
-                    Spacer()
-                    
-                    Button {
-                        
-                    } label: {
-                        
-                        VStack {
-                            Image(systemName: "bell.slash")
-                                .font(.title2)
-                            Text("Mute")
-                        }
-                        
+                        .foregroundColor(.red)
                         
                     }
                     .buttonStyle(.plain)
@@ -96,9 +103,40 @@ struct ExpandView: View {
 
                 }
                 
+                Picker(selection: $chatData.pickedSelection) {
+                    Text("Media")
+                        .tag("Media")
+                    
+                    Text("Docs")
+                        .tag("Docs")
+                    Text("Link")
+                        .tag("Link")
+                } label: {
+                    Text("Picker")
+                }
+                .pickerStyle(.segmented)
+                .labelsHidden()
+                .padding(.vertical)
+
+                ScrollView {
+                    if chatData.pickedSelection == "Media"{
+                        
+                    }
+                    
+                    else {
+                        withAnimation {
+                            Text("No \(chatData.pickedSelection)")
+                        }
+                        .animation(.linear, value: 10)
+                        
+                    }
+                }
+                
                 Spacer()
                 
-            }.frame(maxWidth: .infinity)
+            }
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity)
             
         }
     }
